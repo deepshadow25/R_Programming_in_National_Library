@@ -59,7 +59,7 @@ ggplot(DATA, aes(x= satisfaction_level)) + geom_density()
 ggplot(DATA, aes(x= satisfaction_level)) + geom_density(col='yellow', fill='black')
 
 # 박스플롯(box plot)
-ggplot(DATA, aes(x = left, y = satisfaction_level)) + geom_boxplot(aes(fill = left)) + xlab('이직여부') + ggtitle('Boxplot') + labs(fill = '이직여부')
+ggplot(DATA, aes(x = left, y = satisfaction_level)) + geom_boxplot(aes(fill = left)) + xlab('이직여부') + ylab('직무 만족도') + ggtitle('Boxplot') + labs(fill = '이직여부')
 
 ggplot(DATA, aes(x = left, y = satisfaction_level)) + 
   geom_boxplot(aes(fill = left), alpha = I(0.4)) + 
@@ -71,3 +71,12 @@ ggplot(DATA, aes(x = left, y = satisfaction_level)) +
   geom_boxplot(aes(fill = left), alpha = I(0.4), outlier_colour = 'red') + 
   xlab('이직여부') + ylab('만족도') + ggtitle('Boxplot') + 
   labs(fill = '임금 수준')
+
+
+# 산점도
+
+head(DATA)
+ggplot(DATA, aes(x = average_montly_hours, y = satisfaction_level)) + geom_point()
+
+# 색을 통한 인사이트 발굴. 색상에 축을 넣음 (col=left)
+ggplot(DATA, aes(x = average_montly_hours, y = satisfaction_level)) + geom_point(aes(col = left)) + labs(col='이직 여부') + xlab('평균 근무시간') + ylab('만족도')
