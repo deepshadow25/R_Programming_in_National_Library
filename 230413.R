@@ -80,3 +80,23 @@ ggplot(DATA, aes(x = average_montly_hours, y = satisfaction_level)) + geom_point
 
 # 색을 통한 인사이트 발굴. 색상에 축을 넣음 (col=left)
 ggplot(DATA, aes(x = average_montly_hours, y = satisfaction_level)) + geom_point(aes(col = left)) + labs(col='이직 여부') + xlab('평균 근무시간') + ylab('만족도')
+
+
+
+# DATA Handling
+
+# 조건에 맞는 값 할당하기 ifelse
+DATA$satisfaction_level_group_1 = ifelse(DATA$satisfaction_level > 0.5, 'High', 'Low')
+  # DATA에서 satisfaction_level_grout_1 이름의 새로운 변수를 생성 
+  # satisfaction_level이 0.5보다 크면 high, 그렇지 않다면 low로 부여 (명목형으로 새롭게 변수 부여)
+
+DATA$satisfaction_level_group_2 = 
+  ifelse(DATA$satisfaction_level > 0.8, 'High', 
+         ifelse(DATA$satisfaction_level > 0.5, 'Mid', 'Low'))
+
+         
+
+# 조건에 맞는 데이터 추출하기 subset (부분집합)
+DATA_High = subset(DATA, salary == 'high')
+DATA_High_IT = subset(DATA, salary == 'high' & sales == 'IT') # 교집합
+DATA_High_IT2 = subset(DATA, salary == 'high' | sales == 'IT') # 합집합
