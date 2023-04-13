@@ -44,3 +44,9 @@ ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = left))
 # 범례, 축 이름 편집
 ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = left)) + labs(fill = 'Divided by left')
 ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = left)) + labs(fill = 'Divided by left') + xlab('봉급 수준') + ylab('')
+
+# 축 순서 변경
+DATA$salary = factor(DATA$salary, levels=c('low','medium','high'))
+ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = left)) + labs(fill = 'Divided by left') + xlab('봉급 수준') + ylab('')
+ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = sales)) + labs(fill = 'Divided by left') + xlab('봉급 수준') + ylab('')
+
