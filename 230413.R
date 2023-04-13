@@ -50,3 +50,24 @@ DATA$salary = factor(DATA$salary, levels=c('low','medium','high'))
 ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = left)) + labs(fill = 'Divided by left') + xlab('봉급 수준') + ylab('')
 ggplot(DATA, aes(x = salary)) + geom_bar(aes(fill = sales)) + labs(fill = 'Divided by left') + xlab('봉급 수준') + ylab('')
 
+# 히스토그램
+ggplot(DATA, aes(x= satisfaction_level)) + geom_histogram()
+ggplot(DATA, aes(x= satisfaction_level)) + geom_histogram(binwidth=0.01, col = 'red', fill='skyblue')
+
+# 밀도그래프
+ggplot(DATA, aes(x= satisfaction_level)) + geom_density()
+ggplot(DATA, aes(x= satisfaction_level)) + geom_density(col='yellow', fill='black')
+
+# 박스플롯(box plot)
+ggplot(DATA, aes(x = left, y = satisfaction_level)) + geom_boxplot(aes(fill = left)) + xlab('이직여부') + ggtitle('Boxplot') + labs(fill = '이직여부')
+
+ggplot(DATA, aes(x = left, y = satisfaction_level)) + 
+  geom_boxplot(aes(fill = left), alpha = I(0.4)) + 
+  geom_jitter(aes(col = left), alpha = I(0.4)) + 
+  xlab('이직여부') + ylab('만족도') + ggtitle('Boxplot') + 
+  labs(fill = '이직 여부', col = '이직 여부')
+
+ggplot(DATA, aes(x = left, y = satisfaction_level)) + 
+  geom_boxplot(aes(fill = left), alpha = I(0.4), outlier_colour = 'red') + 
+  xlab('이직여부') + ylab('만족도') + ggtitle('Boxplot') + 
+  labs(fill = '임금 수준')
