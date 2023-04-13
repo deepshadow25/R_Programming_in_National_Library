@@ -24,3 +24,6 @@ DATA$promotion_last_5years = as.factor(DATA$promotion_last_5years)
 summary(DATA$Work_accident)
 summary(DATA$left)
 summary(DATA$promotion_last_5years)
+
+
+## 패키지 설치 되지 않을 때 하단 console창에 options(repos = c(CRAN = 'http:/cran.rstudio.com')) 입력 후 패키지 
