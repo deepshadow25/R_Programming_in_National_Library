@@ -27,7 +27,13 @@ summary(DATA$promotion_last_5years)
 
 
 ## 패키지 설치 되지 않을 때 하단 console창에 options(repos = c(CRAN = 'http:/cran.rstudio.com')) 입력 후 패키지 
-# 패키지 설치하기
+# 패키지 설치하가
 install.packages('ggplot2')
+
 # 패키지 불러오기
 library(ggplot2)
+
+# x축 y축 정하기, 시작명령어는 ggplot, 그래프 변수 설정시 무조건 aes 안에 
+
+# barplot (x축만 설정해도 됨)
+ggplot(DATA, aes(x = salary)) + geom_bar()
