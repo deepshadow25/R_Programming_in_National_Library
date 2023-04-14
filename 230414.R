@@ -75,3 +75,4 @@ DATA$time_spend_company
 ggplot(DATA, aes(x = left)) + geom_bar(aes(fill = DATA$time_spend_company)) + xlab('이직 여부') + labs(fill = '근속년수')
 
 ggplot(DATA, aes(x = satisfaction_level)) + geom_density(aes(fill=left, alpha = 0.3)) + labs(fill='이직여부')
+ 
