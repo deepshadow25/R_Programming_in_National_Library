@@ -18,3 +18,27 @@ data <- read.csv("./HR_comma_sep (1).csv")
 data
 
 summary(data)
+
+# describe 함수 사용
+install.packages("psych")
+library(psych)
+
+describe(data)
+describeBy(data, group = 'salary')
+
+# 박스플랏 (y : 연속형, x : 범주형)
+ggplot(data, aes(x= salary, y = satisfaction_level)) + geom_boxplot()
+
+str(data)
+data$salary <- factor(data$salary, levels = c("low", "medium", "high"))
+ggplot(data, aes(x = salary, y = satisfaction_level)) + geom_boxplot()
+
+data$left <- as.factor(data$left)
+ggplot(data, aes(x = salary, y = satisfaction_level)) + geom_boxplot(
+  aes(fill = left))
+
+data$left <- as.factor(data$left)
+ggplot(data, aes(x = salary, y = satisfaction_level)) + 
+  geom_boxplot(  aes(fill = left)) +
+  xlab('연봉수준') + ylab('만족도') + labs(fill = '이직여부') +
+  ggtitle('BOX PLOT')
