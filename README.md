@@ -7,5 +7,3 @@
 심화강의 : 23. 05. 17 ~ 23. 05. 19
 
 강사 : 정종우 ([(주) 시티아이랩](http://www.cityeyelab.com/) 대표)
-
-[메모 링크](https://iris-kilometer-1d6.notion.site/R-230413-42a7ba7d6fc04581bf770b23310d7c64)
