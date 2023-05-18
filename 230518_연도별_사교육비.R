@@ -57,3 +57,11 @@ info_df <- edu_df %>%
   summarize(총비용 = sum(조정값) / 10^8) %>% # 조 단위
   ungroup()
 
+# pivot_wider : 행, 열을 재조정하여 데이터를 더 보기 좋게 만드려 할 때 사용하는 함수
+
+info_df2 <- info_df %>%
+  pivot_wider(
+    id_cols = 학교급구분코드, 
+    names_from = 년도,
+    values_from = 총비용
+  )
