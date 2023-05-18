@@ -66,3 +66,4 @@ info_df2 <- info_df %>%
     values_from = 총비용,
     names_glue = "{년도}년"
   )
+info_df2
