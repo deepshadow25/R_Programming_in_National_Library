@@ -31,13 +31,29 @@ is.na(birth_df$시점)
 !is.na(birth_df$시점)
 
 # 1년 중 몇월에 아이들이 가장 많이 태어났을까?
-birth_df %>% 
+birth_df <- birth_df %>% 
   filter(!is.na(시점)) %>% # -> 시점을 기준으로 필터링
   select(시점, 전국) %>%  # -> 연, 월로 쪼갬
   separate(시점, into = c('년도', '월')) # separate는 . or , 기준으로 데이터를 구분시켜줌
- 
- 
- 
 
+# 테이블의 정보를 요약해 주는 summarize
 
+birth_df %>%
+  group_by(월) %>%
+  summarise(평균출생수 = mean(전국))
 
+# 데이터를 순서대로 정렬하는 arrange
+birth_df %>%
+  group_by(월) %>%
+  summarise(평균출생수 = mean(전국)) %>%
+  arrange(평균출생수)  # 내림차순 desc
+ 
+# qplot을 이용한 시각화
+
+birth_df %>%
+  group_by(월) %>%
+  summarise(평균출생수 = mean(전국)) %>%
+  qplot(x = 월, y = 평균출생수, geom = 'col', data = .) +
+  labs(title = '월별 신생아 출생 평균',
+       subtitle = '1997년부터 2021년 자료') +
+  theme_bw(base_size = 15)
