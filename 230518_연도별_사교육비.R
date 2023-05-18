@@ -63,5 +63,6 @@ info_df2 <- info_df %>%
   pivot_wider(
     id_cols = 학교급구분코드, 
     names_from = 년도,
-    values_from = 총비용
+    values_from = 총비용,
+    names_glue = "{년도}년"
   )
