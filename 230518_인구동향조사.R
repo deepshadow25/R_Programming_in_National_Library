@@ -1,4 +1,4 @@
-# 인구동향조사
+# 230518
 
 # 국가통계포털 (https://kosis.kr/index/index.do) 데이터 자료 이용
 # 데이터 카테고리 -> 인구 -> 인구동향조사 -> 출생 -> 시군구/월별출생
@@ -30,8 +30,9 @@ colSums(is.na(birth_df))
 is.na(birth_df$시점)
 !is.na(birth_df$시점)
 
-# 1년 중 몇월에 아이들이 가장 많이 태어났을까?
-## birth_df 데이터를 새롭게 선언해야 함.
+# 원하는 행 걸러내기
+## 1년 중 몇월에 아이들이 가장 많이 태어났을까?
+
 birth_df <- birth_df %>% 
   filter(!is.na(시점)) %>% # -> 시점을 기준으로 필터링
   select(시점, 전국) %>%  # -> 연, 월로 쪼갬
@@ -58,3 +59,4 @@ birth_df %>%
   labs(title = '월별 신생아 출생 평균',
        subtitle = '1997년부터 2021년 자료') +
   theme_bw(base_size = 15)
+
