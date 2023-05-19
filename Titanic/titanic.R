@@ -138,7 +138,7 @@ ggplot(data = full[1:891,], aes(x = Family, fill = factor(Survived))) +
   theme(legend.position = c(0.9,0.9))
 
 full$FamD[full$Family == 1] <- "Alone"
-full$FamD[full$Family < 5 & full$Family > 1] <- "Small"
+full$FamD[full$Family < 4 & full$Family > 1] <- "Small"
 full$FamD[full$Family >= 4] <- "Big"
 
 mosaicplot(table(full$FamD, full$Survived), main = "Mosaic Plot of Family Size", xlab = "Family size", ylab = "Survived", col = hcl(c(50,120)),)
