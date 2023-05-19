@@ -67,3 +67,22 @@ info_df2 <- info_df %>%
     names_glue = "{년도}년"
   )
 info_df2
+
+
+
+# 증감율 
+
+install.packages("janitor")
+install.packages("scales")
+library(janitor)
+library(scales) # percent 함수
+
+info_df2 <- info_df2 %>%
+  rename(학교구분 = 학교급구분코드) %>%
+  adorn_totals("row") %>% # 합계 행을 생성
+  mutate(증감율 = (`2021년`/`2020년`), 
+         증감율 = percent(증감율-1))
+
+# 작은따옴표 ' 가 아닌 Backskit (`)을 넣어야 함 `2021년` 과 같이)
+
+info_df2
