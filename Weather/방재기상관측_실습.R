@@ -484,3 +484,6 @@ comp %>%
   labs(title= paste0("rmse=", rmse(comp$Y, comp$predict)), x = "TRUE", y = "Prediction") + 
   theme_bw()
 
+# 경고메시지(들): 
+# In UseMethod("depth") :
+#  클래스 "NULL"의 객체에 적용된 'depth'에 사용할수 있는 메소드가 없습니다
