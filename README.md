@@ -6,4 +6,4 @@
 
 심화강의 : 23. 05. 17 ~ 23. 05. 19
 
-강사 : 정종우 ([(주) 시티아이랩](http://www.cityeyelab.com/) 대표)
+강사 : 정종우 [(주) 시티아이랩](http://www.cityeyelab.com/) 대표
