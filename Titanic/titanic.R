@@ -227,7 +227,7 @@ varImpPlot(model)
 
 prediction <- predict(model, test)
 solution <- data.frame(Survived = prediction, PassengerID = test$PassengerId)
-write.csv(solution, file = "230519_model.soution.csv", row.names = F)
+write.csv(solution, file = "230519_model.solution.csv", row.names = F)
 
 # 결론
 # 1. 아이의 경우 생존율이 높음 (노인과 크게 차이가 없음)
